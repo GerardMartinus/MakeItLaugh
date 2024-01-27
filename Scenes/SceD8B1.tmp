@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://ds74jrm4tv1ko"]
+
+[ext_resource type="Script" path="res://Script/CameraOnPlayer.gd" id="1_exqqi"]
+[ext_resource type="Script" path="res://Script/PlayerControllerPlataformer.gd" id="2_uxdlm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mwgrq"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_3mqvk"]
+sky_material = SubResource("ProceduralSkyMaterial_mwgrq")
+
+[sub_resource type="Environment" id="Environment_fc1fi"]
+background_mode = 2
+sky = SubResource("Sky_3mqvk")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k38jn"]
+size = Vector2(20, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rp7xh"]
+data = PackedVector3Array(10, 0, 5, -10, 0, 5, 10, 0, -5, -10, 0, 5, -10, 0, -5, 10, 0, -5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8sla"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v3l86"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23x0y"]
+albedo_color = Color(0.0705882, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ba6k1"]
+material = SubResource("StandardMaterial3D_23x0y")
+
+[node name="SceneOne" type="Node3D"]
+script = ExtResource("1_exqqi")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fc1fi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1696, 0, 0)
+mesh = SubResource("PlaneMesh_k38jn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rp7xh")
+
+[node name="Ground2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0124, 0, 0)
+mesh = SubResource("PlaneMesh_k38jn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rp7xh")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(-3.81481e-08, 0, -0.55495, 0, 1, 0, 0.872726, 0, -2.42576e-08, -20.8572, 0.156165, 1.10952)
+script = ExtResource("2_uxdlm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 2.32595, 0, 0, 0, 1, 0, 1.00681, 0)
+shape = SubResource("BoxShape3D_r8sla")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 2.29818, 0, 0, 0, 1, 0, 1.01004, 0)
+mesh = SubResource("BoxMesh_v3l86")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.84906, 12.814)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerName" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+offset_right = 253.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 39
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pool" type="MeshInstance3D" parent="." groups=["Obstacle"]]
+transform = Transform3D(85.8727, 0, 0, 0, 19.37, 0, 0, 0, 53.8364, -6.02307, -19.6992, 0)
+mesh = SubResource("BoxMesh_ba6k1")
