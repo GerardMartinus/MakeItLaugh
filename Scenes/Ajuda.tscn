@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=3 uid="uid://b47aqy35eeks"]
+
+[ext_resource type="Texture2D" uid="uid://cjmoq88ximjsk" path="res://Scenes/menu-Recuperadovdesfocado.png" id="1_b12a6"]
+[ext_resource type="Script" path="res://Scenes/help.gd" id="2_h3cv0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 59.0
+offset_right = 4800.0
+offset_bottom = 2459.0
+scale = Vector2(0.241027, 0.269573)
+texture = ExtResource("1_b12a6")
+script = ExtResource("2_h3cv0")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -121.0
+offset_right = 129.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.686275, 0.686275, 0.686275, 0.529412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -74.0
+offset_right = 81.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.121569, 0.694118, 1)
+theme_override_font_sizes/font_size = 52
+text = "HELP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "W"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "A"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "S"
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "D"
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = " & Space
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "Move and Jump"
+
+[node name="Back" type="Button" parent="VBoxContainer" groups=["buttons"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "Back"

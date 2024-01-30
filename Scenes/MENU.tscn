@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd6nujcm2ouu8"]
+
+[ext_resource type="Script" path="res://Script/MENU.gd" id="1_adb33"]
+[ext_resource type="Texture2D" uid="uid://i0g3rsotbbcf" path="res://menu-Recuperadov01.png" id="2_jnx87"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_adb33")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jnx87")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 926.0
+offset_top = -59.0
+offset_right = 1087.0
+offset_bottom = 470.0
+theme_override_colors/font_color = Color(0.898039, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "CRACK
+ THE 
+BEAK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 229.0
+offset_right = 163.0
+offset_bottom = 373.0
+
+[node name="Play" type="Button" parent="TextureRect/VBoxContainer" groups=["buttons"]]
+modulate = Color(0.898039, 0, 0, 1)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.898039, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Play
+"
+flat = true
+
+[node name="Help" type="Button" parent="TextureRect/VBoxContainer" groups=["buttons"]]
+modulate = Color(0.898039, 0, 0, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.898039, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Help
+"
+flat = true
+
+[node name="Exit" type="Button" parent="TextureRect/VBoxContainer" groups=["buttons"]]
+modulate = Color(0.898039, 0, 0, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.898039, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Exit
+"
+flat = true

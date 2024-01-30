@@ -29,7 +29,6 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ge7bb"]
-load_path = "res://.godot/imported/Nozzle_Base_Color.png-83b7a6db3d0c753e2376b12191e1df2f.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybxeu"]
 albedo_texture = SubResource("CompressedTexture2D_ge7bb")
