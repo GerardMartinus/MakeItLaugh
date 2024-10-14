@@ -320,7 +320,7 @@ transform = Transform3D(-3.81481e-08, 0, -0.55495, 0, 1, 0, 0.872726, 0, -2.4257
 script = ExtResource("2_uxdlm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 2.32595, 0, 0, 0, 1, 0, 1.00681, 0)
+transform = Transform3D(1, 0, 0, 0, 2.32595, 0, 7.10543e-15, 0, 1, 0, 1.32991, 0)
 shape = SubResource("BoxShape3D_r8sla")
 
 [node name="Shape" parent="Player" instance=ExtResource("4_5swib")]
